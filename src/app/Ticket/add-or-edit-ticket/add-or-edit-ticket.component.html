@@ -1,0 +1,24 @@
+<form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
+  <label for="phoneNumber">Phone Number:</label>
+  <input type="text" id="phoneNumber" formControlName="phoneNumber" />
+
+  <label for="governorate">Governorate:</label>
+  <input type="text" id="governorate" formControlName="governorate" />
+
+  <label for="city">City:</label>
+  <select id="city" formControlName="city">
+    <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+  </select>
+
+  <label for="district">District:</label>
+  <select id="city" formControlName="district">
+    <option *ngFor="let district of districts" [value]="district">
+      {{ district }}
+    </option>
+  </select>
+
+  <label for="isHandled">Is Handled:</label>
+  <input type="checkbox" id="isHandled" formControlName="isHandled" />
+
+  <button type="submit" [disabled]="!ticketForm.valid">Submit</button>
+</form>

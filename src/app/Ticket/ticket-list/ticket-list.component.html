@@ -1,0 +1,17 @@
+<h2>Tickets</h2>
+<button (click)="navigateToAddTicketPage()">Add New Ticket</button>
+<ul>
+  <li *ngFor="let ticket of tickets; let i = index">
+    <div
+      [ngStyle]="{
+        color: getColorForTicket(ticket.creationDateTime)
+      }"
+    >
+      {{ i + 1 }} - {{ ticket?.creationDateTime | date : "yyyy-MM-dd HH:mm" }} -
+
+      <button (click)="handleTicket(ticket.id)" [disabled]="ticket?.isHandled">
+        {{ ticket?.isHandled ? "Handled" : "Not Handled" }}
+      </button>
+    </div>
+  </li>
+</ul>
